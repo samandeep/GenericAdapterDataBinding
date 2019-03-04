@@ -6,9 +6,9 @@
         <variable
             name="items"
             type="List&lt;Item>"/>
-<variable
-    name="childLayoutId"
-    type="int"/>
+        <variable
+            name="childLayoutId"
+            type="int"/>
     </data>
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -19,15 +19,28 @@
         <android.support.v4.widget.SwipeRefreshLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/swipe_refresh_main_layout">
+            android:id="@+id/swipe_refresh_main_layout"
+            android:layout_above="@+id/btnNext">
 
             <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:id="@+id/recycler_view_main_layout"
                 app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-                app:childLayoutId="@{layout.recycler_item_view}"
-                app:itemsList="@{items}"/>
+                app:itemsList="@{items}"
+                app:childLayoutId="@{@layout/recycler_item_view}"/>
         </android.support.v4.widget.SwipeRefreshLayout>
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height"
+            android:background="@color/colorAccent"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="@string/students_record"
+            android:textSize="@dimen/text_size"
+            android:layout_alignParentBottom="true"/>
 
     </RelativeLayout>
 </layout>

@@ -6,25 +6,23 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.List;
 
-import ca.sa.genericadapterdatabinding.R;
 import ca.sa.genericadapterdatabinding.adapters.GenericAdapter;
-import ca.sa.genericadapterdatabinding.models.Item;
+import ca.sa.genericadapterdatabinding.models.Student;
 
 /**
- * Created by samandeep on 26,February,2019
+ * Created by samandeep on 04,March,2019
  */
-public class MainFragmentBindingAdapter {
-
+public class StudentBindingAdapter {
     private static RecyclerView view;
-    private static List<Item> items;
-    private static int childLayoutId;
+    private static List<Student> students;
+    private static int childLayout;
 
-    @BindingAdapter({"itemsList","childLayoutId"})
-    public static void setItemsList(RecyclerView view, List<Item> items, int childLayoutId){
-        MainFragmentBindingAdapter.view = view;
-        MainFragmentBindingAdapter.items = items;
-        MainFragmentBindingAdapter.childLayoutId = childLayoutId;
-        if(items == null){
+    @BindingAdapter({"studentsList","childLayout"})
+    public static void setStudentsList(RecyclerView view, List<Student> students, int childLayout){
+        StudentBindingAdapter.view = view;
+        StudentBindingAdapter.students = students;
+        StudentBindingAdapter.childLayout = childLayout;
+        if(students == null){
             return;
         }
 
@@ -35,7 +33,7 @@ public class MainFragmentBindingAdapter {
 
         GenericAdapter adapter = (GenericAdapter) view.getAdapter();
         if(adapter == null){
-            adapter = new GenericAdapter(items,childLayoutId);
+            adapter = new GenericAdapter(students,childLayout);
             view.setAdapter(adapter);
         }
     }

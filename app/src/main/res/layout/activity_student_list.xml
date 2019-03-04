@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="ca.sa.genericadapterdatabinding.models.Student"/>
+        <import type="java.util.List"/>
+
+        <variable
+            name="students"
+            type="List&lt;Student>"/>
+        <variable
+            name="childLayout"
+            type="int"/>
+    </data>
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -14,7 +25,10 @@
             <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/recycler_view_student_layout">
+                android:id="@+id/recycler_view_student_layout"
+                app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                app:studentsList="@{students}"
+                app:childLayout="@{@layout/item_view_students}">
             </android.support.v7.widget.RecyclerView>
         </android.support.v4.widget.SwipeRefreshLayout>
 

@@ -10,6 +10,9 @@ import com.android.databinding.library.baseAdapters.BR;
 
 import java.util.List;
 
+import ca.sa.genericadapterdatabinding.R;
+import ca.sa.genericadapterdatabinding.dataBinding.MainFragmentBindingAdapter;
+
 
 /**
  * Created by samandeep on 27,February,2019
@@ -18,9 +21,11 @@ import java.util.List;
 public class GenericAdapter<T> extends RecyclerView.Adapter<GenericAdapter.ViewHolder> {
 
     private List<? extends T> list;
+    private int layoutId;
 
-    public GenericAdapter(List<? extends T> list) {
+    public GenericAdapter(List<? extends T> list,int layoutId) {
         this.list = list;
+        this.layoutId=layoutId;
     }
 
     public static class ViewHolder<V extends ViewDataBinding> extends RecyclerView.ViewHolder {
@@ -43,14 +48,24 @@ public class GenericAdapter<T> extends RecyclerView.Adapter<GenericAdapter.ViewH
 
     @Override
     public GenericAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        ViewDataBinding bind = DataBindingUtil.bind(LayoutInflater.from(parent.getContext()).inflate(viewType, parent, false));
+        ViewDataBinding bind = DataBindingUtil.bind(LayoutInflater
+                .from(parent.getContext()).inflate(layoutId, parent, false));
         return new ViewHolder<>(bind);
     }
 
     @Override
     public void onBindViewHolder(GenericAdapter.ViewHolder holder, int position) {
         final T model = list.get(position);
-        holder.getBinding().setVariable(BR.item, model);
+        switch (layoutId){
+            case R.layout.item_view_students:
+                holder.getBinding().setVariable(BR.student, model);
+                break;
+            case R.layout.recycler_item_view:
+                holder.getBinding().setVariable(BR.item, model);
+                break;
+                default:
+                    break;
+        }
         holder.getBinding().executePendingBindings();
     }
 
