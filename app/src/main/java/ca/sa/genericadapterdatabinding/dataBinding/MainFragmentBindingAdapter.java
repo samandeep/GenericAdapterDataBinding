@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.List;
 
+import ca.sa.genericadapterdatabinding.BR;
 import ca.sa.genericadapterdatabinding.R;
 import ca.sa.genericadapterdatabinding.adapters.GenericAdapter;
 import ca.sa.genericadapterdatabinding.models.Item;
@@ -35,7 +36,7 @@ public class MainFragmentBindingAdapter {
 
         GenericAdapter adapter = (GenericAdapter) view.getAdapter();
         if(adapter == null){
-            adapter = new GenericAdapter(items,childLayoutId);
+            adapter = new GenericAdapter(items,childLayoutId, BR.item);
             view.setAdapter(adapter);
         }
     }

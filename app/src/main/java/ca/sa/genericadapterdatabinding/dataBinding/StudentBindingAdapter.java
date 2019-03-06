@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.List;
 
+import ca.sa.genericadapterdatabinding.BR;
 import ca.sa.genericadapterdatabinding.adapters.GenericAdapter;
 import ca.sa.genericadapterdatabinding.models.Student;
 
@@ -33,7 +34,7 @@ public class StudentBindingAdapter {
 
         GenericAdapter adapter = (GenericAdapter) view.getAdapter();
         if(adapter == null){
-            adapter = new GenericAdapter(students,childLayout);
+            adapter = new GenericAdapter(students,childLayout, BR.student);
             view.setAdapter(adapter);
         }
     }
