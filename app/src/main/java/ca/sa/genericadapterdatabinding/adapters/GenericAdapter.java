@@ -65,4 +65,5 @@ public class GenericAdapter<T> extends RecyclerView.Adapter<GenericAdapter.ViewH
         return list.size();
     }
 
+
 }

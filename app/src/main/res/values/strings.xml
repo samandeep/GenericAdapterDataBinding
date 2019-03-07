@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">GenericAdapterDataBinding</string>
     <string name="students_record">STUDENTS RECORD</string>
+    <string name="sort">Sort</string>
 </resources>

@@ -15,11 +15,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
+        <RelativeLayout
+            android:id="@+id/rlTopBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height"
+            android:padding="@dimen/padding">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/btn_height"
+                android:background="@color/colorAccent"
+                android:textColor="@color/white"
+                android:padding="@dimen/padding"
+                android:layout_centerVertical="true"
+                android:textStyle="bold"
+                android:text="@string/sort"
+                android:id="@+id/btnSort"/>
+        </RelativeLayout>
 
         <android.support.v4.widget.SwipeRefreshLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/swipe_refresh_main_layout"
+            android:layout_below="@+id/rlTopBar"
             android:layout_above="@+id/btnNext">
 
             <android.support.v7.widget.RecyclerView
